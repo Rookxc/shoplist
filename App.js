@@ -11,7 +11,7 @@ export default function UselessTextInput() {
     <React.Fragment>
       
       <View style={styles.container}>
-        <Text style={styles.SignIn}> Sign In </Text>
+        <Text style={styles.SignIn}> Sign In !!!</Text>
         <StatusBar style="auto" />
       </View>
      
