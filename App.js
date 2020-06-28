@@ -65,16 +65,16 @@ const styles = StyleSheet.create({
     marginLeft: 50,
     marginRight: 50,
     height: 40,
-    borderColor: 'black',
-    borderWidth: 4,
+    borderColor: "#13a5b0",
+    borderWidth: 2,
     borderRadius: 25,
 
     //Shadow
-    shadowColor: "#000",
+    /*shadowColor: "#000",
     shadowOffset: { width: 0, height: 3, },
     shadowOpacity: 0.29,
     shadowRadius: 4.65,
-    elevation: 7,
+    elevation: 7,*/
   },
 
   txtPassword: {
@@ -86,16 +86,16 @@ const styles = StyleSheet.create({
     marginLeft: 50,
     marginRight: 50,
     height: 40,
-    borderColor: 'black',
-    borderWidth: 4,
+    borderColor: "#13a5b0",
+    borderWidth: 2,
     borderRadius: 25,
 
     //Shadow
-    shadowColor: "#000",
+    /*shadowColor: "#000",
     shadowOffset: { width: 0, height: 3, },
     shadowOpacity: 0.29,
     shadowRadius: 4.65,
-    elevation: 7,
+    elevation: 7,*/
   },
 
   btnContainer: {
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     marginRight: 50,
 
     elevation: 8,
-    backgroundColor: "#009688",
+    backgroundColor: "#13a5b0",
     borderRadius: 25,
     paddingVertical: 10,
     paddingHorizontal: 12
