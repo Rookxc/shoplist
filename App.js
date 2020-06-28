@@ -3,9 +3,6 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity, CheckBox, Linking, Image } from 'react-native';
 
 export default function Login() {
-
-  //const [value, onChangeText] = React.useState('Text 1');
-  //const [value2, onChangeText2] = React.useState('Text 2');
   const [isSelected, setSelection] = React.useState(false);
 
   return (
