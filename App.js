@@ -1,13 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity, CheckBox, Linking, Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity, CheckBox, Linking, Image  } from 'react-native';
 
-export default function Login() {
+
+export default function Login({ navigation }) {
   const [isSelected, setSelection] = React.useState(false);
 
   return (
     <React.Fragment>
-
       <View style={styles.container}>
         <Text style={styles.SignIn}> Sign In</Text>
         <StatusBar style="auto" />
@@ -15,17 +15,17 @@ export default function Login() {
 
       <View style={styles.txtEmail}>
         <Image //SPREMENI URL NA LOCAL /ASSESTS/IMAGE
-        source={{ uri: 'https://www.suitdoctors.com/wp-content/uploads/2015/11/Email-Icon.png',}} style={styles.ImageStyle} />
+          source={{ uri: 'https://www.suitdoctors.com/wp-content/uploads/2015/11/Email-Icon.png', }} style={styles.ImageStyle} />
         <TextInput style={styles.txtInput}
           placeholder="Enter Your Email Here"
           underlineColorAndroid="transparent"
         />
       </View>
 
-      <View style={styles.txtPassword}> 
+      <View style={styles.txtPassword}>
         <Image //SPREMENI URL NA LOCAL /ASSESTS/IMAGE
-        source={{ uri: 'https://www.festivalclaca.cat/imgfv/b/149-1492805_cyber-security-icon-png-lock-icon.png',}} style={styles.ImageStyle} />
-        <TextInput style={styles.txtInput}
+          source={{ uri: 'https://www.festivalclaca.cat/imgfv/b/149-1492805_cyber-security-icon-png-lock-icon.png', }} style={styles.ImageStyle} />
+        <TextInput style={styles.txtInput} secureTextEntry={true}
           placeholder="Enter Your Password Here"
           underlineColorAndroid="transparent"
         />
@@ -38,7 +38,7 @@ export default function Login() {
 
           <Text //replace google.com z drugim oknom (Forgot password recovery)
             style={styles.txtForgotPass} onPress={() => Linking.openURL('https://google.com')} >                   Forgot password?
-        </Text></Text>
+          </Text></Text>
       </View>
 
       <TouchableOpacity style={styles.btnContainer}>
@@ -47,14 +47,12 @@ export default function Login() {
 
       <View style={styles.txtNewAccount}>
         <Text> Don't have an account?
-          <Text //replace google.com z drugim oknom (Registracija)
-            style={styles.txtForgotPass} onPress={() => Linking.openURL('https://google.com')} > Create one!
-          </Text>
+    <Text //replace google.com z drugim oknom (Registracija)
+            style={styles.txtForgotPass} onPress={() => navigation.navigate('SignUp')} > Create one!
+    </Text>
         </Text>
       </View>
-
     </React.Fragment>
-
   );
 }
 
@@ -99,7 +97,7 @@ const styles = StyleSheet.create({
     elevation: 7,*/
   },
 
-  txtInput:{
+  txtInput: {
     flex: 1,
     marginLeft: 8,
   },
@@ -132,7 +130,7 @@ const styles = StyleSheet.create({
     marginRight: 50,
 
     elevation: 8,
-    backgroundColor: "#13a5b0",
+    backgroundColor: "#04AFDA",
     borderRadius: 25,
     paddingVertical: 10,
     paddingHorizontal: 12
@@ -155,6 +153,7 @@ const styles = StyleSheet.create({
 
   checkbox: {
     alignSelf: "center",
+    //backgroundColor: "#04AFDA",
   },
 
   txtRememberMe: {
