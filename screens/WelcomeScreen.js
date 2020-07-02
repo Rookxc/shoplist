@@ -13,6 +13,8 @@ import {
 } from "react-native";
 
 import { Colors } from "../config/colors.js";
+import emailIcon from '../assets/Email-Icon.png';
+import passIcon from '../assets/lock-icon.png';
 
 export default function Login({ navigation }) {
   const [isSelected, setSelection] = React.useState(false);
@@ -25,11 +27,7 @@ export default function Login({ navigation }) {
       </View>
 
       <View style={styles.txtEmail}>
-        <Image //SPREMENI URL NA LOCAL /ASSESTS/IMAGE
-          source={{
-            uri:
-              "https://www.suitdoctors.com/wp-content/uploads/2015/11/Email-Icon.png",
-          }}
+        <Image source={emailIcon}
           style={styles.ImageStyle}
         />
         <TextInput
@@ -40,11 +38,7 @@ export default function Login({ navigation }) {
       </View>
 
       <View style={styles.txtPassword}>
-        <Image //SPREMENI URL NA LOCAL /ASSESTS/IMAGE
-          source={{
-            uri:
-              "https://www.festivalclaca.cat/imgfv/b/149-1492805_cyber-security-icon-png-lock-icon.png",
-          }}
+        <Image source={passIcon}
           style={styles.ImageStyle}
         />
         <TextInput
@@ -64,14 +58,14 @@ export default function Login({ navigation }) {
 
         <Text
           style={styles.txtRememberMe}
-          //onPress={(CheckBox.onValueChange = { setSelection })}
+        //onPress={(CheckBox.onValueChange = { setSelection })}
         >
-          Remember me? {isSelected ? "👍" : "👎"}
+          Remember me? {isSelected ? "  👍" : "  👎"}
           <Text //replace google.com z drugim oknom (Forgot password recovery)
             style={styles.txtForgotPass}
             onPress={() => Linking.openURL("https://google.com")}
           >
-            {" "}
+            {"                    "}
             Forgot password?
           </Text>
         </Text>

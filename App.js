@@ -13,7 +13,11 @@ import {
 } from "react-native";
 
 import Login from "./screens/WelcomeScreen";
+import SignUp from "./screens/SignUp";
+import ThankYou from "./screens/ThankYou";
 
 export default function App({ navigation }) {
-  return <Login />;
+  return <ThankYou />;
+  //return <SignUp />;
+  //return <Login />;
 }
