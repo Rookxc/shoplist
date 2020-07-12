@@ -5,6 +5,7 @@ export const Colors = {
   secondary: "#13a5b0",
 
   bluish: "#007cba",
+  bluishLight: "#0b9be3",
 
   gradientLight: "#30a9e6",
   gradientMedium: "#007cba",
