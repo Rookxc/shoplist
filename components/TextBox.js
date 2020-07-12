@@ -1,12 +1,18 @@
 import React from "react";
 import { StyleSheet, View, Image, TextInput } from "react-native";
 
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Colors } from "../config/colors.js";
 
-function TextBox({ placeholder, imageSource, secureTextEntry }) {
+function TextBox({ placeholder, iconName, secureTextEntry }) {
   return (
     <View style={styles.container}>
-      <Image source={imageSource} style={styles.ImageStyle} />
+      <MaterialCommunityIcons
+        name={iconName}
+        size={40 * 0.5}
+        color={Colors.bluishLight}
+        style={styles.ImageStyle}
+      ></MaterialCommunityIcons>
       <TextInput
         style={styles.textbox}
         placeholder={placeholder}
@@ -34,7 +40,7 @@ const styles = StyleSheet.create({
 
   textbox: {
     flex: 1,
-    marginLeft: 8,
+    marginLeft: 3,
   },
 
   ImageStyle: {
