@@ -2,20 +2,9 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 
 import CheckBox from "react-native-custom-checkbox";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  Button,
-  TouchableOpacity,
-  Linking,
-  Image,
-} from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 import { Colors } from "../config/colors.js";
-import emailIcon from "../assets/Email-Icon.png";
-import passIcon from "../assets/lock-icon.png";
 
 import TextBox from "../components/TextBox";
 import AppButton from "../components/AppButton.js";
@@ -33,7 +22,7 @@ export default function Login({ navigation }) {
       <View style={styles.txtEmail}>
         <TextBox
           placeholder="Enter Your Email Here"
-          imageSource={emailIcon}
+          iconName={"email"}
           secureTextEntry={false}
         />
       </View>
@@ -42,7 +31,7 @@ export default function Login({ navigation }) {
         <TextBox
           style={styles.txtPassword}
           placeholder="Enter Your Password Here"
-          imageSource={passIcon}
+          iconName={"lock"}
           secureTextEntry={true}
         />
       </View>
@@ -63,8 +52,8 @@ export default function Login({ navigation }) {
         <Text>
           {" "}
           Don't have an account?
-          <Text //replace google.com z drugim oknom (Registracija)
-            style={styles.txtForgotPass}
+          <Text //replace z drugim oknom (Registracija)
+            style={styles.txtCreateAccount}
             onPress={() => navigation.navigate("SignUp")}
           >
             {" "}
@@ -77,9 +66,12 @@ export default function Login({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    marginTop: "55%",
+  fullScreen: {
+    backgroundColor: Colors.black,
+  },
 
+  container: {
+    marginTop: "45%",
     fontSize: 20,
     fontWeight: "bold",
     alignItems: "center",
@@ -120,70 +112,27 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     flexDirection: "row",
     justifyContent: "flex-start",
-    backgroundColor: "#f2f2f2",
     color: Colors.bluish,
     borderColor: Colors.bluish,
-    marginRight: 10,
-    paddingRight: 10,
     borderRadius: 7,
   },
 
   rememberMe: {
     flex: 1,
     flexDirection: "row",
+    marginLeft: 5,
   },
 
-  //YES
-  btnContainer: {
-    marginTop: 40,
-    marginLeft: 50,
-    marginRight: 50,
-
-    elevation: 8,
-    backgroundColor: Colors.primary,
-    borderRadius: 25,
-    paddingVertical: 10,
-    paddingHorizontal: 12,
-  },
-
-  btnText: {
-    fontSize: 18,
-    color: Colors.white,
-    fontWeight: "bold",
-    alignSelf: "center",
-    textTransform: "uppercase",
-  },
-
-  chkBoxForgotPassContainer: {
-    marginLeft: 50,
-    marginRight: 50,
-    flexDirection: "row",
-    marginBottom: 20,
-  },
-
-  txtRememberMe: {
-    margin: 8,
-  },
-
-  txtForgotPass: {
+  txtCreateAccount: {
     color: Colors.bluish,
   },
 
   txtNewAccount: {
-    marginTop: 100,
     justifyContent: "center",
     alignItems: "center",
-  },
-
-  ImageStyle: {
-    padding: 5,
-    marginLeft: -16,
-    marginBottom: 1,
-    marginTop: 3,
-    //margin: 5,
-    height: 30,
-    width: 30,
-    resizeMode: "stretch",
-    alignItems: "center",
+    position: "absolute",
+    bottom: 25,
+    right: 0,
+    left: 0,
   },
 });
