@@ -17,19 +17,17 @@ import topRight from '../assets/topRight.png';
 import bottomLeft from '../assets/bottomLeft.png';
 
 export default function Login({ navigation }) {
-    const [isSelected, setSelection] = React.useState(false);
-
     return (
         <React.Fragment>
             <View style={styles.imageContainer}>
                 <Image source={topRight} style={styles.ImageStyle} />
             </View>
 
-            <View style={styles.container}>
+            <View style={styles.thanksContainer}>
                 <Text style={styles.thanks}> Thank you for registering!</Text>
                 <StatusBar style="auto" />
             </View>
-            <View style={styles.container2}>
+            <View style={styles.credits}>
                 <Text style={styles.text}> This app is made and designed by  <Text style={styles.names}>Brandon & Rookxc!</Text>{"\n"}Logo made by <Text style={styles.names}>Dooxer</Text>.</Text>
                 <StatusBar style="auto" />
             </View>
@@ -48,7 +46,7 @@ export default function Login({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    container: {
+    thanksContainer: {
         //flex: 1,
         marginTop: 370,
         marginLeft: 50,
@@ -61,7 +59,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
 
-    container2: {
+    credits: {
         //flex: 1,
         marginTop: 5,
         marginLeft: 50,

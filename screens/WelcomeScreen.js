@@ -1,5 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
+
+import CheckBox from "react-native-custom-checkbox";
 import {
   StyleSheet,
   Text,
@@ -7,14 +9,16 @@ import {
   TextInput,
   Button,
   TouchableOpacity,
-  CheckBox,
   Linking,
   Image,
 } from "react-native";
 
 import { Colors } from "../config/colors.js";
-import emailIcon from '../assets/Email-Icon.png';
-import passIcon from '../assets/lock-icon.png';
+import emailIcon from "../assets/Email-Icon.png";
+import passIcon from "../assets/lock-icon.png";
+
+import TextBox from "../components/TextBox";
+import AppButton from "../components/AppButton.js";
 
 export default function Login({ navigation }) {
   const [isSelected, setSelection] = React.useState(false);
@@ -27,53 +31,33 @@ export default function Login({ navigation }) {
       </View>
 
       <View style={styles.txtEmail}>
-        <Image source={emailIcon}
-          style={styles.ImageStyle}
-        />
-        <TextInput
-          style={styles.txtInput}
+        <TextBox
           placeholder="Enter Your Email Here"
-          underlineColorAndroid="transparent"
+          imageSource={emailIcon}
+          secureTextEntry={false}
         />
       </View>
 
       <View style={styles.txtPassword}>
-        <Image source={passIcon}
-          style={styles.ImageStyle}
-        />
-        <TextInput
-          style={styles.txtInput}
-          secureTextEntry={true}
+        <TextBox
+          style={styles.txtPassword}
           placeholder="Enter Your Password Here"
-          underlineColorAndroid="transparent"
+          imageSource={passIcon}
+          secureTextEntry={true}
         />
       </View>
 
-      <View style={styles.chkBoxForgotPassContainer}>
+      <View style={styles.secondContainer}>
         <CheckBox
           value={isSelected}
           onValueChange={setSelection}
           style={styles.checkbox}
         />
-
-        <Text
-          style={styles.txtRememberMe}
-        //onPress={(CheckBox.onValueChange = { setSelection })}
-        >
-          Remember me? {isSelected ? "  👍" : "  👎"}
-          <Text //replace google.com z drugim oknom (Forgot password recovery)
-            style={styles.txtForgotPass}
-            onPress={() => Linking.openURL("https://google.com")}
-          >
-            {"                    "}
-            Forgot password?
-          </Text>
-        </Text>
+        <Text style={styles.rememberMe}>Remember me</Text>
+        <Text style={styles.forgotPassword}>Forgot password?</Text>
       </View>
 
-      <TouchableOpacity style={styles.btnContainer}>
-        <Text style={styles.btnText}>Sign in</Text>
-      </TouchableOpacity>
+      <AppButton btnText={"Sign in"} />
 
       <View style={styles.txtNewAccount}>
         <Text>
@@ -94,16 +78,21 @@ export default function Login({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    //flex: 1,
-    marginTop: 240,
-    marginLeft: 50,
-    marginRight: 50,
+    marginTop: "55%",
 
     fontSize: 20,
     fontWeight: "bold",
-    backgroundColor: Colors.white,
     alignItems: "center",
     justifyContent: "center",
+  },
+
+  secondContainer: {
+    marginTop: 5,
+    width: "77%",
+    flexDirection: "row",
+    alignItems: "center",
+    alignSelf: "center",
+    justifyContent: "space-between",
   },
 
   SignIn: {
@@ -112,54 +101,39 @@ const styles = StyleSheet.create({
   },
 
   txtEmail: {
-    flexDirection: "row",
-    //Text align:
-    paddingLeft: 20,
-
-    //Textbox align:
-    marginTop: 54,
-    marginLeft: 50,
-    marginRight: 50,
-    height: 40,
-    borderColor: Colors.secondary,
-    borderWidth: 2,
-    borderRadius: 25,
-
-    //Shadow
-    /*shadowColor: "#000",
-    shadowOffset: { width: 0, height: 3, },
-    shadowOpacity: 0.29,
-    shadowRadius: 4.65,
-    elevation: 7,*/
-  },
-
-  txtInput: {
-    flex: 1,
-    marginLeft: 8,
+    alignSelf: "center",
+    justifyContent: "center",
+    marginTop: "10%",
   },
 
   txtPassword: {
-    flexDirection: "row",
-    //Text align:
-    paddingLeft: 20,
-
-    //Textbox align:
-    marginTop: 20,
-    marginLeft: 50,
-    marginRight: 50,
-    height: 40,
-    borderColor: Colors.secondary,
-    borderWidth: 2,
-    borderRadius: 25,
-
-    //Shadow
-    /*shadowColor: "#000",
-    shadowOffset: { width: 0, height: 3, },
-    shadowOpacity: 0.29,
-    shadowRadius: 4.65,
-    elevation: 7,*/
+    alignSelf: "center",
+    justifyContent: "center",
+    marginTop: "5%",
   },
 
+  forgotPassword: {
+    color: Colors.bluish,
+  },
+
+  checkbox: {
+    alignSelf: "center",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    backgroundColor: "#f2f2f2",
+    color: Colors.bluish,
+    borderColor: Colors.bluish,
+    marginRight: 10,
+    paddingRight: 10,
+    borderRadius: 7,
+  },
+
+  rememberMe: {
+    flex: 1,
+    flexDirection: "row",
+  },
+
+  //YES
   btnContainer: {
     marginTop: 40,
     marginLeft: 50,
@@ -187,17 +161,12 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 
-  checkbox: {
-    alignSelf: "center",
-    //backgroundColor: "#04AFDA",
-  },
-
   txtRememberMe: {
     margin: 8,
   },
 
   txtForgotPass: {
-    color: Colors.primary,
+    color: Colors.bluish,
   },
 
   txtNewAccount: {

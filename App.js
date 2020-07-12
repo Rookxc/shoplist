@@ -12,12 +12,22 @@ import {
   Image,
 } from "react-native";
 
-import Login from "./screens/WelcomeScreen";
+import WelcomeScreen from "./screens/WelcomeScreen";
 import SignUp from "./screens/SignUp";
 import ThankYou from "./screens/ThankYou";
+import { Colors } from "./config/colors.js";
+
+import TextBox from "./components/TextBox";
+
+import passIcon from "./assets/lock-icon.png";
+import AppButton from "./components/AppButton";
 
 export default function App({ navigation }) {
-  return <ThankYou />;
+  //return <ThankYou />;
   //return <SignUp />;
-  //return <Login />;
+  return <WelcomeScreen />;
+  //return <AppButton></AppButton>;
+  //return <TextBox />;
 }
+
+const styles = StyleSheet.create({});
