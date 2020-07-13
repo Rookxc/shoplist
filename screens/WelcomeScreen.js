@@ -66,10 +66,6 @@ export default function Login({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  fullScreen: {
-    backgroundColor: Colors.black,
-  },
-
   container: {
     marginTop: "45%",
     fontSize: 20,
@@ -128,11 +124,10 @@ const styles = StyleSheet.create({
   },
 
   txtNewAccount: {
-    justifyContent: "center",
+    flex: 1,
     alignItems: "center",
-    position: "absolute",
-    bottom: 25,
-    right: 0,
-    left: 0,
+    flexDirection: "column",
+    justifyContent: "flex-end",
+    marginBottom: "7%",
   },
 });

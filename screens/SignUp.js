@@ -1,21 +1,12 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  Button,
-  TouchableOpacity,
-  CheckBox,
-  Linking,
-  Image,
-} from "react-native";
+import CheckBox from "react-native-custom-checkbox";
+import { StyleSheet, Text, View, Linking } from "react-native";
 
 import { Colors } from "../config/colors.js";
-import emailIcon from "../assets/Email-Icon.png";
-import passIcon from "../assets/lock-icon.png";
-import userIcon from "../assets/person-icon.png";
+
+import TextBox from "../components/TextBox";
+import AppButton from "../components/AppButton.js";
 
 export default function Login({ navigation }) {
   const [isSelected, setSelection] = React.useState(false);
@@ -27,31 +18,27 @@ export default function Login({ navigation }) {
         <StatusBar style="auto" />
       </View>
 
-      <View style={styles.txtUsername}>
-        <Image source={userIcon} style={styles.ImageStyle} />
-        <TextInput
-          style={styles.txtInput}
+      <View style={styles.txtBox}>
+        <TextBox
           placeholder="Enter Your Username Here"
-          underlineColorAndroid="transparent"
+          iconName={"account"}
+          secureTextEntry={false}
         />
       </View>
 
-      <View style={styles.txtEmail}>
-        <Image source={emailIcon} style={styles.ImageStyle} />
-        <TextInput
-          style={styles.txtInput}
+      <View style={styles.txtBox}>
+        <TextBox
           placeholder="Enter Your Email Here"
-          underlineColorAndroid="transparent"
+          iconName={"email"}
+          secureTextEntry={false}
         />
       </View>
 
-      <View style={styles.txtPassword}>
-        <Image source={passIcon} style={styles.ImageStyle} />
-        <TextInput
-          style={styles.txtInput}
-          secureTextEntry={true}
+      <View style={styles.txtBox}>
+        <TextBox
           placeholder="Enter Your Password Here"
-          underlineColorAndroid="transparent"
+          iconName={"lock"}
+          secureTextEntry={true}
         />
       </View>
 
@@ -61,7 +48,7 @@ export default function Login({ navigation }) {
           onValueChange={setSelection}
           style={styles.checkbox}
         />
-        <Text style={styles.txtRememberMe}>
+        <Text style={styles.txtAgreement}>
           I agree with
           <Text //replace google.com z drugim oknom (Forgot password recovery)
             style={styles.txtTermsAndConditions}
@@ -73,9 +60,7 @@ export default function Login({ navigation }) {
         </Text>
       </View>
 
-      <TouchableOpacity style={styles.btnContainer}>
-        <Text style={styles.btnText}>Create account</Text>
-      </TouchableOpacity>
+      <AppButton btnText={"Create account"} />
 
       <View style={styles.txtNewAccount}>
         <Text>
@@ -96,14 +81,9 @@ export default function Login({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    //flex: 1,
-    marginTop: 220,
-    marginLeft: 50,
-    marginRight: 50,
-
+    marginTop: "45%",
     fontSize: 20,
     fontWeight: "bold",
-    backgroundColor: Colors.white,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -113,95 +93,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 
-  txtUsername: {
-    flexDirection: "row",
-    //Text align:
-    paddingLeft: 20,
-
-    //Textbox align:
-    marginTop: 54,
-    marginLeft: 50,
-    marginRight: 50,
-    height: 40,
-    borderColor: Colors.secondary,
-    borderWidth: 2,
-    borderRadius: 25,
-
-    //Shadow
-    /*shadowColor: "#000",
-        shadowOffset: { width: 0, height: 3, },
-        shadowOpacity: 0.29,
-        shadowRadius: 4.65,
-        elevation: 7,*/
-  },
-
-  txtEmail: {
-    flexDirection: "row",
-    //Text align:
-    paddingLeft: 20,
-
-    //Textbox align:
-    marginTop: 20,
-    marginLeft: 50,
-    marginRight: 50,
-    height: 40,
-    borderColor: Colors.secondary,
-    borderWidth: 2,
-    borderRadius: 25,
-
-    //Shadow
-    /*shadowColor: "#000",
-        shadowOffset: { width: 0, height: 3, },
-        shadowOpacity: 0.29,
-        shadowRadius: 4.65,
-        elevation: 7,*/
-  },
-
-  txtInput: {
-    flex: 1,
-    marginLeft: 8,
-  },
-
-  txtPassword: {
-    flexDirection: "row",
-    //Text align:
-    paddingLeft: 20,
-
-    //Textbox align:
-    marginTop: 20,
-    marginLeft: 50,
-    marginRight: 50,
-    height: 40,
-    borderColor: Colors.secondary,
-    borderWidth: 2,
-    borderRadius: 25,
-
-    //Shadow
-    /*shadowColor: "#000",
-        shadowOffset: { width: 0, height: 3, },
-        shadowOpacity: 0.29,
-        shadowRadius: 4.65,
-        elevation: 7,*/
-  },
-
-  btnContainer: {
-    marginTop: 40,
-    marginLeft: 50,
-    marginRight: 50,
-
-    elevation: 8,
-    backgroundColor: Colors.primary,
-    borderRadius: 25,
-    paddingVertical: 10,
-    paddingHorizontal: 12,
-  },
-
-  btnText: {
-    fontSize: 18,
-    color: Colors.white,
-    fontWeight: "bold",
+  txtBox: {
     alignSelf: "center",
-    textTransform: "uppercase",
+    justifyContent: "center",
+    marginTop: "5%",
   },
 
   chkBoxAgreement: {
@@ -217,10 +112,14 @@ const styles = StyleSheet.create({
 
   checkbox: {
     alignSelf: "center",
-    //backgroundColor: "#04AFDA",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    color: Colors.bluish,
+    borderColor: Colors.bluish,
+    borderRadius: 7,
   },
 
-  txtRememberMe: {
+  txtAgreement: {
     margin: 8,
   },
 
@@ -229,20 +128,10 @@ const styles = StyleSheet.create({
   },
 
   txtNewAccount: {
-    marginTop: 100,
-    justifyContent: "center",
+    flex: 1,
     alignItems: "center",
-  },
-
-  ImageStyle: {
-    padding: 5,
-    marginLeft: -16,
-    marginBottom: 1,
-    marginTop: 3,
-    //margin: 5,
-    height: 30,
-    width: 30,
-    resizeMode: "stretch",
-    alignItems: "center",
+    flexDirection: "column",
+    justifyContent: "flex-end",
+    marginBottom: "7%",
   },
 });

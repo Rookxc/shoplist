@@ -19,13 +19,12 @@ import { Colors } from "./config/colors.js";
 
 import TextBox from "./components/TextBox";
 
-import passIcon from "./assets/lock-icon.png";
 import AppButton from "./components/AppButton";
 
 export default function App({ navigation }) {
-  //return <ThankYou />;
+  return <ThankYou />;
   //return <SignUp />;
-  return <WelcomeScreen />;
+  //return <WelcomeScreen />;
   //return <AppButton></AppButton>;
   //return <TextBox />;
 }

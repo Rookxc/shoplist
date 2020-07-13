@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     alignSelf: "center",
-    padding: 15,
+    padding: 13,
 
     marginVertical: 30,
   },

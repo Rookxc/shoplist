@@ -1,134 +1,102 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import {
-    StyleSheet,
-    Text,
-    View,
-    TextInput,
-    Button,
-    TouchableOpacity,
-    CheckBox,
-    Linking,
-    Image,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  Dimensions,
 } from "react-native";
 
 import { Colors } from "../config/colors.js";
-import topRight from '../assets/topRight.png';
-import bottomLeft from '../assets/bottomLeft.png';
+import AppButton from "../components/AppButton.js";
+
+import topRight from "../assets/topRight.png";
+import bottomLeft from "../assets/bottomLeft.png";
+
+const screenHeight = Math.round(Dimensions.get("window").height);
+
+const polovicaEkranaJebemti = screenHeight / 2.5;
 
 export default function Login({ navigation }) {
-    return (
-        <React.Fragment>
-            <View style={styles.imageContainer}>
-                <Image source={topRight} style={styles.ImageStyle} />
-            </View>
+  return (
+    <React.Fragment>
+      <View style={styles.imageContainer}>
+        <Image source={topRight} style={styles.ImageStyle} />
+      </View>
 
-            <View style={styles.thanksContainer}>
-                <Text style={styles.thanks}> Thank you for registering!</Text>
-                <StatusBar style="auto" />
-            </View>
-            <View style={styles.credits}>
-                <Text style={styles.text}> This app is made and designed by  <Text style={styles.names}>Brandon & Rookxc!</Text>{"\n"}Logo made by <Text style={styles.names}>Dooxer</Text>.</Text>
-                <StatusBar style="auto" />
-            </View>
+      <View style={styles.thanksContainer}>
+        <Text style={styles.thanks}> Thank you for registering!</Text>
+        <Text style={styles.text}>
+          {" "}
+          This app is made and designed by{"\n"}
+          <Text style={styles.names}>Brandon & Rookxc!</Text>
+          {"\n"}Logo made by <Text style={styles.names}>Dooxer</Text>.
+        </Text>
+      </View>
 
+      <AppButton btnText={"CONTINUE TO APP"}></AppButton>
 
-            <TouchableOpacity style={styles.btnContainer}>
-                <Text style={styles.btnText}>Continue to app</Text>
-            </TouchableOpacity>
-
-            <View style={styles.bottomImageContainer}>
-                <Image source={bottomLeft} style={styles.bottomImageStyle} />
-            </View>
-
-        </React.Fragment>
-    );
+      <View style={styles.bottomImageContainer}>
+        <Image source={bottomLeft} style={styles.bottomImageStyle} />
+      </View>
+    </React.Fragment>
+  );
 }
 
 const styles = StyleSheet.create({
-    thanksContainer: {
-        //flex: 1,
-        marginTop: 370,
-        marginLeft: 50,
-        marginRight: 50,
+  thanksContainer: {
+    marginTop: polovicaEkranaJebemti,
+    fontSize: 20,
+    fontWeight: "bold",
+  },
 
-        fontSize: 20,
-        fontWeight: "bold",
-        backgroundColor: Colors.white,
-        alignItems: "center",
-        justifyContent: "center",
-    },
+  credits: {
+    fontSize: 20,
+    fontWeight: "bold",
+    backgroundColor: Colors.white,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 
-    credits: {
-        //flex: 1,
-        marginTop: 5,
-        marginLeft: 50,
-        marginRight: 50,
+  names: {
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
 
-        fontSize: 20,
-        fontWeight: "bold",
-        backgroundColor: Colors.white,
-        alignItems: "center",
-        justifyContent: "center",
-    },
+  thanks: {
+    textAlign: "center",
+    fontSize: 30,
+    fontWeight: "bold",
+    width: "100%",
+  },
 
-    names: {
-        fontSize: 20,
-        fontWeight: "bold",
-        textAlign: 'center',
-    },
+  text: {
+    fontSize: 20,
+    textAlign: "center",
+  },
 
-    thanks: {
-        fontSize: 30,
-        fontWeight: "bold",
-    },
+  imageContainer: {
+    position: "absolute",
+    top: -50,
+    right: -50,
+  },
 
-    text: {
-        fontSize: 20,
-        alignItems: "center",
-        justifyContent: "center",
-        textAlign: 'center',
-    },
+  ImageStyle: {
+    width: 430,
+    height: 430,
+  },
 
-    btnContainer: {
-        marginTop: 40,
-        marginLeft: 50,
-        marginRight: 50,
+  bottomImageContainer: {
+    position: "absolute",
+    bottom: -150,
+    left: -60,
+  },
 
-        elevation: 8,
-        backgroundColor: Colors.primary,
-        borderRadius: 25,
-        paddingVertical: 10,
-        paddingHorizontal: 12,
-    },
-
-    btnText: {
-        fontSize: 18,
-        color: Colors.white,
-        fontWeight: "bold",
-        alignSelf: "center",
-        textTransform: "uppercase",
-    },
-
-    imageContainer: {
-        position: 'absolute',
-            top: -50,
-            right: -50,
-    },
-
-    ImageStyle: {
-        width: 430,
-        height: 430,
-    },
-
-    bottomImageContainer:{
-        position: 'absolute',
-            bottom: -150,
-            left: -60,
-    },
-
-    bottomImageStyle:{
-        width: 300,
-        height: 300,
-    },
+  bottomImageStyle: {
+    width: 300,
+    height: 300,
+  },
 });
