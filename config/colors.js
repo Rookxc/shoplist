@@ -10,4 +10,7 @@ export const Colors = {
   gradientLight: "#30a9e6",
   gradientMedium: "#007cba",
   gradientDark: "#006da3",
+
+  danger: "#e33927",
+  dangerDark: "#ba3022",
 };

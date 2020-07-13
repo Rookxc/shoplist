@@ -36,7 +36,7 @@ export default function Login({ navigation }) {
         </Text>
       </View>
 
-      <AppButton btnText={"CONTINUE TO APP"}></AppButton>
+      <AppButton btnText={"CONTINUE TO APP"} />
 
       <View style={styles.bottomImageContainer}>
         <Image source={bottomLeft} style={styles.bottomImageStyle} />
