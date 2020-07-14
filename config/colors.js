@@ -6,6 +6,7 @@ export const Colors = {
 
   bluish: "#007cba",
   bluishLight: "#0b9be3",
+  skyblue: "#b7e2f7",
 
   gradientLight: "#30a9e6",
   gradientMedium: "#007cba",
