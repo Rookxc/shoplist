@@ -16,6 +16,7 @@ import WelcomeScreen from "./screens/WelcomeScreen";
 import SignUp from "./screens/SignUp";
 import ThankYou from "./screens/ThankYou";
 import ListScreen from "./screens/ListScreen";
+import AppList from "./components/AppList";
 import { Colors } from "./config/colors.js";
 
 import TextBox from "./components/TextBox";
@@ -26,6 +27,7 @@ import TextBoxWBtn from "./components/TextBoxWBtn";
 export default function App({ navigation }) {
   //return <ThankYou />;
   return <ListScreen></ListScreen>;
+  //return <AppList></AppList>;
   //return <SignUp />;
   //return <WelcomeScreen />;
   //return <AppButton></AppButton>;
