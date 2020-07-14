@@ -31,7 +31,7 @@ function TextBoxWBtn({ placeholder, buttonText }) {
 const styles = StyleSheet.create({
   container: {
     height: 50,
-    width: "90%",
+    width: "100%",
 
     justifyContent: "center",
     alignSelf: "center",
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignSelf: "center",
 
-    marginRight: 5,
+    marginRight: 3,
   },
 
   buttonText: {
