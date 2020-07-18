@@ -5,7 +5,7 @@ import CheckBox from "react-native-custom-checkbox";
 import { StyleSheet, Text, View } from "react-native";
 
 import { Colors } from "../config/colors.js";
-
+import Screen from "../components/Screen";
 import TextBox from "../components/TextBox";
 import AppButton from "../components/AppButton.js";
 
@@ -13,7 +13,7 @@ export default function Login({ navigation }) {
   const [isSelected, setSelection] = React.useState(false);
 
   return (
-    <React.Fragment>
+    <Screen>
       <View style={styles.container}>
         <Text style={styles.SignIn}> Sign In</Text>
         <StatusBar style="auto" />
@@ -61,7 +61,7 @@ export default function Login({ navigation }) {
           </Text>
         </Text>
       </View>
-    </React.Fragment>
+    </Screen>
   );
 }
 
