@@ -1,4 +1,6 @@
 import React from "react";
+import Swipeable from "react-native-gesture-handler/Swipeable";
+
 import {
   View,
   StyleSheet,
@@ -8,37 +10,49 @@ import {
 } from "react-native";
 import { Colors } from "../config/colors.js";
 
-function AppList({ name, numberOfItems, onPress }) {
+function AppList({
+  name,
+  numberOfItems,
+  onPress,
+  renderRightActions,
+  renderLeftActions,
+}) {
   return (
-    <TouchableHighlight style={styles.mainContainer}>
-      <View
-        style={{
-          flex: 1,
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
+    <Swipeable
+      renderRightActions={renderRightActions}
+      renderLeftActions={renderLeftActions}
+    >
+      <TouchableHighlight
+        style={styles.mainContainer}
+        underlayColor={Colors.gradientDark}
       >
-        <Text style={styles.itemText}>{name}</Text>
-        <Text style={styles.itemNumber}>{numberOfItems}</Text>
-      </View>
-    </TouchableHighlight>
+        <View
+          style={{
+            flex: 1,
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <Text style={styles.itemText}>{name}</Text>
+          <Text style={styles.itemNumber}>{numberOfItems}</Text>
+        </View>
+      </TouchableHighlight>
+    </Swipeable>
   );
 }
 
 const styles = StyleSheet.create({
   mainContainer: {
+    backgroundColor: "#FFF",
     marginBottom: 10,
-    backgroundColor: Colors.skyblue,
-    width: "90%",
+    width: "100%",
     height: 50,
-
     justifyContent: "center",
     alignSelf: "center",
-
-    borderColor: Colors.bluish,
-    borderWidth: 2,
-    borderRadius: 15,
+    borderColor: Colors.white,
+    borderBottomColor: Colors.bluish,
+    borderWidth: 1,
   },
 
   itemText: {

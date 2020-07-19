@@ -30,6 +30,7 @@ function TextBoxWBtn({ placeholder, buttonText }) {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: Colors.bluishLight,
     height: 50,
     width: "100%",
 
@@ -66,6 +67,7 @@ const styles = StyleSheet.create({
   },
 
   textbox: {
+    color: "#FFF",
     flex: 1,
     marginLeft: 3,
     fontSize: 20,

@@ -8,6 +8,9 @@ import TextBoxWBtn from "../components/TextBoxWBtn.js";
 import AppList from "../components/AppList.js";
 import Constants from "expo-constants";
 
+import ListItemDeleteAction from "../components/ListItemDeleteAction";
+import NoIdeaForTheFeature from "../components/NoIdeaForTheFeature";
+
 const itemsToBuy = [
   {
     id: "0001",
@@ -46,7 +49,7 @@ const itemsToBuy = [
   },
   {
     id: "0008",
-    name: "Jägermeister",
+    name: "Jägermeistsfasfsafasfer",
     numberOfItems: "6",
   },
   {
@@ -72,17 +75,17 @@ const itemsToBuy = [
   {
     id: "0013",
     name: "Jägermeister",
-    numberOfItems: "6",
+    numberOfItems: "5",
   },
   {
     id: "0014",
-    name: "Med",
-    numberOfItems: "2",
+    name: "Jägermeister",
+    numberOfItems: "6",
   },
   {
     id: "0015",
-    name: "Jägermeister",
-    numberOfItems: "5",
+    name: "Juice-Vodka",
+    numberOfItems: "6",
   },
 ];
 
@@ -94,7 +97,16 @@ export default function Login({ navigation }) {
           data={itemsToBuy}
           keyExtractor={(itemsToBuy) => itemsToBuy.id}
           renderItem={({ item }) => (
-            <AppList name={item.name} numberOfItems={item.numberOfItems} />
+            <AppList
+              name={item.name}
+              numberOfItems={item.numberOfItems}
+              renderRightActions={() => (
+                <ListItemDeleteAction onPress={() => handleDelete(item)} />
+              )}
+              renderLeftActions={() => (
+                <NoIdeaForTheFeature onPress={() => handleDelete(item)} />
+              )}
+            />
           )}
         />
       </View>
@@ -109,10 +121,11 @@ const styles = StyleSheet.create({
   list: {
     height: "90%",
   },
+
   textbox: {
     backgroundColor: "white",
     flexDirection: "row",
-    width: "90%",
+    width: "95%",
     position: "absolute",
     bottom: 20,
     borderRadius: 25,
