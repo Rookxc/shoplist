@@ -5,12 +5,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { Colors } from "../config/colors.js";
 import Screen from "../components/Screen";
-import TextBoxWBtn from "../components/TextBoxWBtn.js";
 import ListOfItems from "../components/ListOfItems.js";
-import Constants from "expo-constants";
-
-import ListItemDeleteAction from "../components/ListItemDeleteAction";
-import NoIdeaForTheFeature from "../components/NoIdeaForTheFeature";
 
 const itemsToBuy = [
   {

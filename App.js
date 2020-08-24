@@ -25,8 +25,6 @@ import AppNavigator from "./navigation/AppNavigator";
 
 import TextBox from "./components/TextBox";
 
-import AppButton from "./components/AppButton";
-import TextBoxWBtn from "./components/TextBoxWBtn";
 import navigationTheme from "./navigation/navigationTheme";
 
 export default function App() {

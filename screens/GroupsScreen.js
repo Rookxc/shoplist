@@ -3,6 +3,8 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import Screen from "../components/Screen";
 import Group from "../components/Group";
+import AppButton from "../components/AppButton";
+import GroupBlank from "../components/GroupBlank";
 function GroupsScreen(props) {
   return (
     <Screen style={styles.container}>
@@ -20,15 +22,20 @@ function GroupsScreen(props) {
           image={require("../assets/final.jpg")}
         />
       </View>
+      <View style={styles.groupContainer}>
+        <GroupBlank />
+      </View>
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    marginTop: 10,
+  },
 
   groupContainer: {
-    marginVertical: 20,
+    marginVertical: 10,
   },
 });
 export default GroupsScreen;

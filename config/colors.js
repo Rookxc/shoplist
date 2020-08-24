@@ -9,6 +9,7 @@ export const Colors = {
   skyblue: "#b7e2f7",
 
   gradientLight: "#30a9e6",
+  gradientLighter: "#a9d5eb",
   gradientMedium: "#007cba",
   gradientDark: "#006da3",
 
