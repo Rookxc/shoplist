@@ -1,11 +1,12 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, View, FlatList, SafeAreaView } from "react-native";
+import { StyleSheet, View, FlatList, SafeAreaView, Text } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { Colors } from "../config/colors.js";
 import Screen from "../components/Screen";
 import TextBoxWBtn from "../components/TextBoxWBtn.js";
-import AppList from "../components/AppList.js";
+import ListOfItems from "../components/ListOfItems.js";
 import Constants from "expo-constants";
 
 import ListItemDeleteAction from "../components/ListItemDeleteAction";
@@ -14,78 +15,21 @@ import NoIdeaForTheFeature from "../components/NoIdeaForTheFeature";
 const itemsToBuy = [
   {
     id: "0001",
-    name: "Hobby beton",
+    name: "Maslo",
     numberOfItems: "2",
+    category: "Groceries",
   },
   {
     id: "0002",
     name: "Kruh",
     numberOfItems: "2",
+    category: "Groceries",
   },
   {
     id: "0003",
     name: "Vodka",
     numberOfItems: "8",
-  },
-  {
-    id: "0004",
-    name: "Sladkor",
-    numberOfItems: "5",
-  },
-  {
-    id: "0005",
-    name: "Med",
-    numberOfItems: "2",
-  },
-  {
-    id: "0006",
-    name: "Jägermeister",
-    numberOfItems: "6",
-  },
-  {
-    id: "0007",
-    name: "Med",
-    numberOfItems: "2",
-  },
-  {
-    id: "0008",
-    name: "Jägermeistsfasfsafasfer",
-    numberOfItems: "6",
-  },
-  {
-    id: "0009",
-    name: "Med",
-    numberOfItems: "2",
-  },
-  {
-    id: "0010",
-    name: "Jägermeister",
-    numberOfItems: "6",
-  },
-  {
-    id: "0011",
-    name: "Med",
-    numberOfItems: "2",
-  },
-  {
-    id: "0012",
-    name: "Jägermeister",
-    numberOfItems: "5",
-  },
-  {
-    id: "0013",
-    name: "Jägermeister",
-    numberOfItems: "5",
-  },
-  {
-    id: "0014",
-    name: "Jägermeister",
-    numberOfItems: "6",
-  },
-  {
-    id: "0015",
-    name: "Juice-Vodka",
-    numberOfItems: "6",
+    category: "Groceries",
   },
 ];
 
@@ -93,33 +37,46 @@ export default function Login({ navigation }) {
   return (
     <Screen>
       <View style={styles.list}>
+        {/*Category (needs backend to sort)*/}
+        <View style={styles.category}>
+          <Text style={styles.categoryText}>Groceries</Text>
+          <MaterialCommunityIcons name="minus" style={styles.show} />
+        </View>
+
+        {/*Items*/}
         <FlatList
           data={itemsToBuy}
           keyExtractor={(itemsToBuy) => itemsToBuy.id}
           renderItem={({ item }) => (
-            <AppList
-              name={item.name}
-              numberOfItems={item.numberOfItems}
-              renderRightActions={() => (
-                <ListItemDeleteAction onPress={() => handleDelete(item)} />
-              )}
-              renderLeftActions={() => (
-                <NoIdeaForTheFeature onPress={() => handleDelete(item)} />
-              )}
-            />
+            <ListOfItems name={item.name} numberOfItems={item.numberOfItems} />
           )}
         />
-      </View>
-      <View style={styles.textbox}>
-        <TextBoxWBtn placeholder="Name of item" buttonText="ADD" />
       </View>
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
+  show: {
+    alignSelf: "center",
+  },
+
+  category: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginRight: 20,
+  },
+
+  categoryText: {
+    fontWeight: "bold",
+
+    padding: 20,
+    fontSize: 40,
+  },
+
   list: {
-    height: "90%",
+    height: "100%",
+    //backgroundColor: "yellow",
   },
 
   textbox: {
