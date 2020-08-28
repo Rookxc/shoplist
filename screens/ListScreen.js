@@ -6,6 +6,9 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Colors } from "../config/colors.js";
 import Screen from "../components/Screen";
 import ListOfItems from "../components/ListOfItems.js";
+import App from "../App.js";
+import AppButton from "../components/AppButton.js";
+import AddItem from "../components/AddItem.js";
 
 const itemsToBuy = [
   {
@@ -46,6 +49,8 @@ export default function Login({ navigation }) {
             <ListOfItems name={item.name} numberOfItems={item.numberOfItems} />
           )}
         />
+
+        <AddItem placeholder="Name of the item" style={{}}></AddItem>
       </View>
     </Screen>
   );
