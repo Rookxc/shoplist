@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   View,
@@ -10,13 +10,26 @@ import {
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Colors } from "../config/colors.js";
 
-function AddItem({ placeholder }) {
+function AddItem({ placeholder, addItem }) {
+  const [item, setItem] = useState("");
+  function handleAddItem() {
+    var fullItem = {
+      name: item,
+      category: "Groceries",
+      numberOfItems: 1,
+      id: "0004",
+    };
+    addItem(fullItem);
+    setItem("");
+  }
   return (
     <View style={styles.container}>
       <TextInput
         style={styles.textbox}
         placeholder={placeholder}
         underlineColorAndroid="transparent"
+        onChangeText={(item) => setItem(item)}
+        defaultValue={item}
       />
       <TouchableOpacity style={styles.addContainer}>
         <MaterialCommunityIcons
@@ -24,6 +37,7 @@ function AddItem({ placeholder }) {
           size={35}
           color="white"
           style={{ alignSelf: "center" }}
+          onPress={handleAddItem}
         />
       </TouchableOpacity>
     </View>

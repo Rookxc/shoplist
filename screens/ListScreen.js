@@ -1,12 +1,12 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View, FlatList, SafeAreaView, Text } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { Colors } from "../config/colors.js";
 import Screen from "../components/Screen";
 import ListOfItems from "../components/ListOfItems.js";
-import App from "../App.js";
+
 import AppButton from "../components/AppButton.js";
 import AddItem from "../components/AddItem.js";
 
@@ -32,6 +32,13 @@ const itemsToBuy = [
 ];
 
 export default function Login({ navigation }) {
+  function addItem(item) {
+    // item["id"] = "0004";
+    // item["category"] = "Groceries";
+    console.log(item);
+    setItemsToBuy([...itemsToBuy, item]);
+  }
+  const [itemsToBuy, setItemsToBuy] = useState([]);
   return (
     <Screen>
       <View style={styles.list}>
@@ -50,7 +57,11 @@ export default function Login({ navigation }) {
           )}
         />
 
-        <AddItem placeholder="Name of the item" style={{}}></AddItem>
+        <AddItem
+          placeholder="Name of the item"
+          addItem={addItem}
+          style={{}}
+        ></AddItem>
       </View>
     </Screen>
   );

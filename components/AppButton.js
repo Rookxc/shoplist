@@ -4,9 +4,9 @@ import { LinearGradient } from "expo-linear-gradient";
 
 import { Colors } from "../config/colors.js";
 
-function AppButton({ btnText }) {
+function AppButton({ btnText, onPress }) {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onPress}>
       <LinearGradient
         colors={[
           Colors.gradientLight,

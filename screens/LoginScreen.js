@@ -8,7 +8,7 @@ import { Colors } from "../config/colors.js";
 import Screen from "../components/Screen";
 import TextBox from "../components/TextBox";
 import AppButton from "../components/AppButton.js";
-
+import AsyncStorage from "@react-native-async-storage/async-storage";
 export default function Login({ navigation }) {
   const [isSelected, setSelection] = React.useState(false);
 
@@ -54,7 +54,7 @@ export default function Login({ navigation }) {
           Don't have an account?
           <Text //replace z drugim oknom (Registracija)
             style={styles.txtCreateAccount}
-            onPress={() => navigation.navigate("SignUp")}
+            onPress={() => navigation.navigate("Sign Up")}
           >
             {" "}
             Create one!

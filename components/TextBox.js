@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View, Image, TextInput } from "react-native";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Colors } from "../config/colors.js";
 
-function TextBox({ placeholder, iconName, secureTextEntry }) {
+function TextBox({ placeholder, iconName, secureTextEntry, onChange, type }) {
+  const [text, setText] = useState("");
+  function handleOnChange(text) {
+    setText(text);
+
+    onChange(text);
+  }
   return (
     <View style={styles.container}>
       <MaterialCommunityIcons
@@ -18,6 +24,8 @@ function TextBox({ placeholder, iconName, secureTextEntry }) {
         placeholder={placeholder}
         secureTextEntry={secureTextEntry}
         underlineColorAndroid="transparent"
+        onChangeText={(text) => handleOnChange(text)}
+        defaultValue={text}
       />
     </View>
   );
